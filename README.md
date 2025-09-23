@@ -16,12 +16,39 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `npm test` to execute the unit tests via **Jest**.
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+# Testing Documentation and Evidence
 
-## Further help
+## Overview
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+This project includes **unit tests and lightweight integration tests** using Jest for faster test execution and easier maintenance compared to Karma.
+
+The tests cover:
+
+1. **HTTP service** — mocking both success and error responses.
+2. **Component interaction** — verifying user interactions and DOM changes.
+3. **Lightweight integration** — testing the interaction between component and service with mocked HTTP calls.
+
+## Captures
+
+![Lighthouse Before](src/docs/captures/lighthouse-before.png)
+![Lighthouse After](src/docs/captures/lighthouse-after.png)
+![Resultados Tests](src/docs/captures/result-unit-test.png)
+
+## Technical decisions
+
+- Migrated from Karma to Jest using `jest-preset-angular` for faster testing.
+- Added global patches for `TextEncoder` and `TextDecoder` to fix environment issues in Jest (`jest.setup.ts`).
+- Configured Jest properly to support Angular features including i18n.
+- Mock HTTP requests with Angular's `HttpTestingController` to simulate API responses.
+- Used Angular testing utilities (`TestBed`, `fixture.detectChanges()`) for realistic component tests.
+
+## Running tests
+
+To run all tests, execute:
+
+```bash
+npm test
