@@ -34,8 +34,8 @@ The tests cover:
 
 ## Captures
 
-![Lighthouse Before](src/docs/captures/lighthouse-before.png)
 ![Lighthouse After](src/docs/captures/lighthouse-after.png)
+![Lighthouse Before](src/docs/captures/lighthouse-before.png)
 ![Resultados Tests](src/docs/captures/result-unit-test.png)
 
 ## Technical decisions
