@@ -19,17 +19,21 @@
 .header-content {
   position: relative;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   max-width: 1200px;
   width: 100%;
   padding: 0 20px;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
+
 .language-selector-container {
-  position: absolute;
-  top: 0;
+  /* Flotante sobre todo el viewport: permanece visible en la esquina superior derecha de la app */
+  position: fixed;
+  top: 20px;
   right: 20px;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .banner-image {
@@ -117,7 +121,7 @@
 
   .language-selector-container {
     right: 15px;
-    top: 5px;
+    top: 8px;
   }
 
   .banner-image {
