@@ -1,18 +1,42 @@
 <div class="app-container">
   <header class="app-header">
-    <img src="assets/o6cwlzg3exk41.png" alt="Rick and Morty Banner" class="banner-image">
+    <div class="language-switcher">
+      <label for="lang-select">🌐</label>
+  <select id="lang-select" (change)="onLangChange($event)" [value]="currentLang" aria-label="Select language">
+  <option value="en">English</option>
+  <option value="es">Español</option>
+  <option value="fr">Français</option>
+      </select>
+    </div>
+    <img 
+      [ngSrc]="'assets/o6cwlzg3exk41.png'" 
+      [alt]="'footer-title' | translate"
+      class="banner-image"
+      width="382"
+      height="99"
+  sizes="(max-width: 600px) 100vw, 50vw"
+      [priority]="true">
   </header>
 
   <main class="main-content">
+  <h1>{{ 'title' | translate }}</h1>
+  <p class="subtitle">{{ 'subtitle' | translate }}</p>
     <app-character-list></app-character-list>
   </main>
 
   <footer class="app-footer">
     <div class="footer-content">
-      <img src="assets/rick-and-morty-escape-facebook-cover.jpg" alt="Rick and Morty Footer" class="footer-image">
+      <img 
+        [ngSrc]="'assets/rick-and-morty-escape-facebook-cover.jpg'" 
+        [alt]="'footer-title' | translate"
+        class="footer-image"
+        width="342"
+        height="127"
+        sizes="(max-width: 600px) 100vw, 50vw"
+        [priority]="true">
       <div class="footer-text">
-        <p>&copy; 2025 Rick and Morty Character Explorer</p>
-        <p>Data provided by <a href="https://rickandmortyapi.com/" target="_blank" rel="noopener">The Rick and Morty API</a></p>
+  <p>&copy; 2025 {{ 'footer-title' | translate }}</p>
+  <p>{{ 'footer-data' | translate }} <a href="https://rickandmortyapi.com/" target="_blank" rel="noopener">The Rick and Morty API</a></p>
       </div>
     </div>
   </footer>
