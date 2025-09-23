@@ -19,7 +19,7 @@
   <div *ngIf="!loading && !error" class="characters-grid">
     <div *ngFor="let character of characters" class="character-card">
       <div class="character-image-container">
-        <img [src]="character.image" [alt]="character.name" class="character-image">
+        <img [ngSrc]="character.image" [alt]="character.name" class="character-image" width="300" height="300">
         <div class="character-overlay">
           <span class="status-indicator" [ngClass]="getStatusClass(character.status)">
             {{ character.status }}
