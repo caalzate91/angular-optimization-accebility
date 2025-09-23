@@ -8,10 +8,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CharacterListComponent } from './components/character-list/character-list.component';
 
+// Importa tu nuevo componente aquí
+import { SimpleComponent } from './services/components/simple/simple.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    CharacterListComponent
+    CharacterListComponent,
+    SimpleComponent   // <-- Agrega el componente aquí
   ],
   imports: [
     BrowserModule,

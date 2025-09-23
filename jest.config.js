@@ -1,7 +1,7 @@
 module.exports = {
   preset: 'jest-preset-angular',
-  setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
-  globalSetup: 'jest-preset-angular/global-setup',
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  globalSetup: 'jest-preset-angular/global-setup.js', // nota la extensión .js aquí también
   testMatch: [
     '<rootDir>/src/**/__tests__/**/*.(ts|js)',
     '<rootDir>/src/**/*.(test|spec).(ts|js)'

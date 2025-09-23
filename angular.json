@@ -54,7 +54,9 @@
               "namedChunks": true
             },
             "es": {
-              "localize": ["es"],
+              "localize": [
+                "es"
+              ],
               "outputPath": "dist/angular-sofkau/es",
               "i18nFile": "src/locale/messages.es.xlf",
               "i18nFormat": "xlf",
@@ -138,7 +140,9 @@
         "prerender": {
           "builder": "@nguniversal/builders:prerender",
           "options": {
-            "routes": ["/"]
+            "routes": [
+              "/"
+            ]
           },
           "configurations": {
             "production": {
@@ -152,13 +156,14 @@
           },
           "defaultConfiguration": "production"
         }
-      }
-    }
-  },
-  "i18n": {
-    "sourceLocale": "en",
-    "locales": {
-      "es": "src/locale/messages.es.xlf"
+      },
+      "i18n": {
+        "sourceLocale": "en",
+        "locales": {
+          "es": "src/locale/messages.es.xlf",
+          "en": "src/locale/messages.en.xlf"
+        }
+      },
     }
   },
   "cli": {
