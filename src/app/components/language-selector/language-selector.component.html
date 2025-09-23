@@ -1,0 +1,34 @@
+<div class="language-selector" (document:click)="onDocumentClick($event)">
+  <button 
+    class="language-button"
+    (click)="toggleDropdown()"
+    [attr.aria-expanded]="isDropdownOpen"
+    aria-haspopup="true"
+    [attr.aria-label]="'Select language. Current: ' + getCurrentLanguageInfo().name"
+    i18n-aria-label="@@language-selector.aria-label"
+    type="button">
+    <span class="flag">{{ getCurrentLanguageInfo().flag }}</span>
+    <span class="language-name">{{ getCurrentLanguageInfo().name }}</span>
+    <span class="dropdown-arrow" [class.open]="isDropdownOpen">▼</span>
+  </button>
+  
+  <div 
+    class="language-dropdown"
+    [class.show]="isDropdownOpen"
+    role="menu"
+    [attr.aria-hidden]="!isDropdownOpen">
+    <button
+      *ngFor="let language of supportedLanguages"
+      class="language-option"
+      [class.active]="language.code === currentLanguage"
+      (click)="changeLanguage(language.code)"
+      role="menuitem"
+      [attr.aria-label]="'Switch to ' + language.name"
+      i18n-aria-label="@@language-option.aria-label"
+      type="button">
+      <span class="flag">{{ language.flag }}</span>
+      <span class="language-name">{{ language.name }}</span>
+      <span *ngIf="language.code === currentLanguage" class="checkmark" aria-hidden="true">✓</span>
+    </button>
+  </div>
+</div>

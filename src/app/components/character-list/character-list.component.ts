@@ -4,7 +4,7 @@ import { RickMortyService, Character, ApiResponse } from '../../services/rick-mo
 @Component({
   selector: 'app-character-list',
   templateUrl: './character-list.component.html',
-  styleUrls: ['./character-list.component.css']
+  styleUrls: ['./character-list.component.min.css']
 })
 export class CharacterListComponent implements OnInit {
   characters: Character[] = [];

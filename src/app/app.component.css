@@ -13,15 +13,35 @@
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+
+.header-content {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.language-selector-container {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  z-index: 100;
 }
 
 .banner-image {
-  max-width: 100%;
+  max-width: 800px;
+  width: 100%;
   height: auto;
   max-height: 200px;
   border-radius: 15px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
+  will-change: transform;
+  content-visibility: auto;
 }
 
 .banner-image:hover {
@@ -50,12 +70,15 @@
 }
 
 .footer-image {
-  max-width: 100%;
+  max-width: 400px;
+  width: 100%;
   height: auto;
   max-height: 150px;
   border-radius: 10px;
   opacity: 0.9;
   transition: opacity 0.3s ease;
+  will-change: opacity;
+  content-visibility: auto;
 }
 
 .footer-image:hover {
@@ -86,6 +109,15 @@
 @media (max-width: 768px) {
   .app-header {
     padding: 15px;
+  }
+
+  .header-content {
+    padding: 0 15px;
+  }
+
+  .language-selector-container {
+    right: 15px;
+    top: 5px;
   }
 
   .banner-image {

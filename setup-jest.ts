@@ -1,4 +1,5 @@
 import 'jest-preset-angular/setup-jest';
+import '@angular/localize/init';
 
 // Mock para localStorage
 Object.defineProperty(window, 'localStorage', {

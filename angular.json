@@ -9,11 +9,24 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "es": {
+            "translation": "src/locale/messages.es.xlf",
+            "baseHref": "/es/"
+          },
+          "en": {
+            "translation": "src/locale/messages.en.xlf",
+            "baseHref": "/en/"
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-sofkau/browser",
+            "outputPath": "dist/angular-sofkau",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -22,12 +35,16 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ],
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "serviceWorker": true,
+            "ngswConfigPath": "ngsw-config.json",
+            "localize": true
           },
           "configurations": {
             "production": {
@@ -39,11 +56,22 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "4kb",
+                  "maximumError": "6kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "optimization": {
+                "scripts": true,
+                "styles": true,
+                "fonts": true
+              },
+              "buildOptimizer": true,
+              "aot": true,
+              "extractLicenses": true,
+              "sourceMap": false,
+              "namedChunks": false,
+              "vendorChunk": false
             },
             "development": {
               "buildOptimizer": false,
@@ -52,6 +80,18 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "es": {
+              "aot": true,
+              "outputPath": "dist/angular-sofkau/es",
+              "localize": ["es"],
+              "baseHref": "/es/"
+            },
+            "en": {
+              "aot": true,
+              "outputPath": "dist/angular-sofkau/en", 
+              "localize": ["en"],
+              "baseHref": "/en/"
             }
           },
           "defaultConfiguration": "production"
@@ -84,7 +124,8 @@
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ],
             "styles": [
               "src/styles.css"
@@ -109,6 +150,14 @@
               "sourceMap": true,
               "extractLicenses": false,
               "vendorChunk": true
+            },
+            "es": {
+              "outputPath": "dist/angular-sofkau/server/es/",
+              "localize": ["es"]
+            },
+            "en": {
+              "outputPath": "dist/angular-sofkau/server/en/",
+              "localize": ["en"]
             }
           },
           "defaultConfiguration": "production"

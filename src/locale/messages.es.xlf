@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" target-language="es" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="footer.copyright" datatype="html">
+        <source>© 2025 Rick and Morty Character Explorer</source>
+        <target>© 2025 Explorador de Personajes de Rick y Morty</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="footer.data-source" datatype="html">
+        <source>Data provided by <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://rickandmortyapi.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;"/>The Rick and Morty API<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/></source>
+        <target>Datos proporcionados por <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://rickandmortyapi.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;"/>The Rick and Morty API<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="characters.title" datatype="html">
+        <source>Explore the Multiverse</source>
+        <target>Explora el Multiverso</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/character-list/character-list.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="characters.subtitle" datatype="html">
+        <source>Discover all the crazy characters from Rick and Morty!</source>
+        <target>¡Descubre todos los personajes locos de Rick y Morty!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/character-list/character-list.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="characters.loading" datatype="html">
+        <source>Loading characters from the multiverse...</source>
+        <target>Cargando personajes del multiverso...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/character-list/character-list.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="characters.retry" datatype="html">
+        <source>Try Again</source>
+        <target>Intentar de Nuevo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/character-list/character-list.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="character.species" datatype="html">
+        <source>Species:</source>
+        <target>Especie:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/character-list/character-list.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="character.type" datatype="html">
+        <source>Type:</source>
+        <target>Tipo:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/character-list/character-list.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="character.gender" datatype="html">
+        <source>Gender:</source>
+        <target>Género:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/character-list/character-list.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="character.last-location" datatype="html">
+        <source>Last known location:</source>
+        <target>Última ubicación conocida:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/character-list/character-list.component.html</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="character.first-seen" datatype="html">
+        <source>First seen in:</source>
+        <target>Visto por primera vez en:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/character-list/character-list.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pagination.previous" datatype="html">
+        <source> ← Previous </source>
+        <target> ← Anterior </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/character-list/character-list.component.html</context>
+          <context context-type="linenumber">65,67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pagination.of" datatype="html">
+        <source>of</source>
+        <target>de</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/character-list/character-list.component.html</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pagination.next" datatype="html">
+        <source> Next → </source>
+        <target> Siguiente → </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/character-list/character-list.component.html</context>
+          <context context-type="linenumber">79,81</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
