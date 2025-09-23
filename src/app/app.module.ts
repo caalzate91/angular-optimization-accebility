@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
+import { NgOptimizedImage } from '@angular/common';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CharacterListComponent } from './components/character-list/character-list.component';
@@ -14,7 +16,8 @@ import { CharacterListComponent } from './components/character-list/character-li
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgOptimizedImage // 👈 Agregado aquí
   ],
   providers: [],
   bootstrap: [AppComponent]
