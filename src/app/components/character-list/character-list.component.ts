@@ -17,6 +17,13 @@ export class CharacterListComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadCharacters();
+    this.rickMortyService.searchResults$.subscribe(results => {
+      if (results && results.length > 0) {
+        this.characters = results;
+      } else {
+        this.loadCharacters();
+      }
+    });
   }
 
   loadCharacters(page: number = 1): void {

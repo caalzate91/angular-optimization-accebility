@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 export interface Character {
   id: number;
@@ -39,6 +39,9 @@ export interface ApiResponse {
 export class RickMortyService {
   private readonly apiUrl = 'https://rickandmortyapi.com/api/character';
 
+  private searchResultsSubject = new BehaviorSubject<any[]>([]);
+  searchResults$ = this.searchResultsSubject.asObservable();
+
   constructor(private readonly http: HttpClient) { }
 
   getCharacters(page: number = 1): Observable<ApiResponse> {
@@ -47,5 +50,13 @@ export class RickMortyService {
 
   getCharacterById(id: number): Observable<Character> {
     return this.http.get<Character>(`${this.apiUrl}/${id}`);
+  }
+
+  getCharactersByName(name: string): Observable<ApiResponse> {
+    return this.http.get<ApiResponse>(`${this.apiUrl}/?name=${name}`);
+  }
+
+  setSearchResults(results: any[]) {
+    this.searchResultsSubject.next(results);
   }
 }

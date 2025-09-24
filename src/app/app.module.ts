@@ -6,14 +6,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CharacterListComponent } from './components/character-list/character-list.component';
 
+import { NgOptimizedImage } from '@angular/common';
+import { SearchingComponent } from './components/search/searching/searching.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    CharacterListComponent
+    CharacterListComponent,
+    SearchingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgOptimizedImage,
     HttpClientModule
   ],
   providers: [],
