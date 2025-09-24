@@ -58,7 +58,7 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
 
     const footer = compiled.querySelector('.footer-text');
-    expect(footer?.textContent).toContain('2025 Rick and Morty Character Explorer');
-    expect(footer?.textContent).toContain('The Rick and Morty API');
+    expect(footer?.textContent).toContain('© 2025 Rick y Morty Explorador de personajes');
+    expect(footer?.textContent).toContain('Data suministrada por Rick y Morty API');
   });
 });

@@ -146,4 +146,40 @@ describe('RickMortyService', () => {
       req.flush('Character not found', { status: 404, statusText: 'Not Found' });
     });
   });
+
+  describe('getCharactersByName', () => {
+    it('should fetch characters by name', () => {
+      const mockCharacter: Character = {
+        id: 1,
+        name: 'Rick Sanchez',
+        status: 'Alive',
+        species: 'Human',
+        type: '',
+        gender: 'Male',
+        origin: {
+          name: 'Earth (C-137)',
+          url: 'https://rickandmortyapi.com/api/location/1'
+        },
+        location: {
+          name: 'Citadel of Ricks',
+          url: 'https://rickandmortyapi.com/api/location/3'
+        },
+        image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
+        episode: ['https://rickandmortyapi.com/api/episode/1'],
+        url: 'https://rickandmortyapi.com/api/character/1',
+        created: '2017-11-04T18:48:46.250Z'
+      };
+
+      service.getCharactersByName('Rick').subscribe(response => {
+        expect(response.results.length).toBeGreaterThan(0);
+        expect(response.results[0].name).toBe('Rick Sanchez');
+      });
+
+      const req = httpMock.expectOne('https://rickandmortyapi.com/api/character/?name=Rick');
+      expect(req.request.method).toBe('GET');
+      req.flush({ info: { count: 1, pages: 1, next: null, prev: null }, results: [mockCharacter] });
+
+
+    });
+  });
 });

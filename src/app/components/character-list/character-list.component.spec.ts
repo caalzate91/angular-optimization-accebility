@@ -52,7 +52,8 @@ describe('CharacterListComponent', () => {
   beforeEach(async () => {
     const rickMortyServiceSpy = {
       getCharacters: jest.fn(),
-      getCharacterById: jest.fn()
+      getCharacterById: jest.fn(),
+      searchResults$: of([])
     };
 
     await TestBed.configureTestingModule({

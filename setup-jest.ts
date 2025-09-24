@@ -1,4 +1,9 @@
 import 'jest-preset-angular/setup-jest';
+import { TextEncoder, TextDecoder } from 'util';
+import '@angular/localize/init';
+
+global.TextEncoder = TextEncoder as any;
+global.TextDecoder = TextDecoder as any;
 
 // Mock para localStorage
 Object.defineProperty(window, 'localStorage', {
