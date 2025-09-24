@@ -31,7 +31,7 @@ export class CharacterListComponent implements OnInit {
         this.loading = false;
       },
       error: (error) => {
-        this.error = 'Error loading characters. Please try again.';
+        this.error = $localize`:@@loadError:Error loading characters. Please try again.`;
         this.loading = false;
         console.error('Error:', error);
       }
