@@ -52,6 +52,14 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('app-character-list')).toBeTruthy();
   });
 
+  it('should contain language switcher component', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    expect(compiled.querySelector('app-language-switcher')).toBeTruthy();
+  });
+
   it('should display footer content', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
