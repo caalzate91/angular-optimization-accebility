@@ -1,27 +1,58 @@
-# AngularSofkau
+# Angular App – Rendimiento y Accesibilidad  
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+Este repositorio contiene una aplicación en **Angular** donde se implementaron optimizaciones enfocadas en:  
 
-## Development server
+1. ⚡ **Rendimiento (LCP) con `NgOptimizedImage`**  
+2. 🌍 **Usabilidad y Accesibilidad con i18n (`@angular/localize`)**  
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## ⚡ Optimización de Imágenes con `NgOptimizedImage`  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+El objetivo fue mejorar la métrica **Largest Contentful Paint (LCP)** de la vista inicial.  
 
-## Build
+### Ajustes realizados  
+- Identificación de la imagen con mayor impacto en el **LCP**.  
+- Reemplazo de la etiqueta `<img>` por la directiva **`NgOptimizedImage`**.  
+- Marcado de la imagen principal como **`priority`** y definición de **width/height** reales.  
+- Configuración de **lazy-loading** en imágenes no críticas.  
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Validación  
+Se utilizó **Lighthouse** para evaluar el impacto:  
 
-## Running unit tests
+- **Antes de la optimización:** LCP elevado debido a la carga tardía de la imagen principal.  
+- **Después de la optimización:** Reducción significativa en el tiempo de renderizado.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+## 🌍 Internacionalización (i18n) con `@angular/localize`  
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+El objetivo fue mejorar la **usabilidad y accesibilidad** para usuarios con diferentes configuraciones de idioma.  
 
-## Further help
+### Ajustes realizados  
+- Integración de **Angular Localize** en el proyecto.  
+- Configuración para detectar automáticamente el idioma del navegador.  
+- Implementación de selector de idioma en la interfaz para permitir cambio manual.  
+- Inclusión de archivos de traducción:  
+  - `es.json` → Español  
+  - `en.json` → Inglés  
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Resultado  
+- La app ahora se adapta dinámicamente según el idioma del navegador.  
+- El usuario puede alternar el idioma en cualquier momento desde un select 
+
+---
+
+## 🚀 Ejecución del proyecto  
+
+```bash
+# Instalar dependencias
+npm install
+
+# Servir en modo desarrollo
+npm start 
+
+
+---
+
+📌 **Autor:** Brayan Niño  

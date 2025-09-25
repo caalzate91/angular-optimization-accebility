@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule, NgOptimizedImage } from '@angular/common'
 import { RickMortyService, Character, ApiResponse } from '../../services/rick-morty.service';
+import { HttpClientModule } from '@angular/common/http';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
+  standalone: true,
+  providers: [RickMortyService],
+  imports: [NgOptimizedImage, HttpClientModule, CommonModule, TranslateModule],
   selector: 'app-character-list',
   templateUrl: './character-list.component.html',
   styleUrls: ['./character-list.component.css']
