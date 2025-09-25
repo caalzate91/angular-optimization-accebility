@@ -57,3 +57,9 @@ To test the multilingual functionality of the application:
     - server/url/es for Spanish (e.g, http://localhost:4000/es or http://127.0.0.1:4000/es/)
     
     Inside the application, use the language switcher to change the language and see the content update accordingly.
+
+#### References used to add i18n in Angular
+1. [Angular docs](https://v17.angular.io/api/localize)
+2. [The Ultimate Guide to Angular Localization](https://phrase.com/blog/posts/angular-localization-i18n/)
+3. [Angular internationalization and localization: A complete guide
+](https://poeditor.com/blog/angular-internationalization-localization/)
