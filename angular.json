@@ -9,6 +9,12 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "es": "src/locale/messages.es.xlf"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -16,6 +22,7 @@
             "outputPath": "dist/angular-sofkau/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
+            "localize": true,
             "polyfills": [
               "zone.js"
             ],
@@ -52,6 +59,12 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "es": {
+              "localize": ["es"]
+            },
+            "en": {
+              "localize": ["en-US"]
             }
           },
           "defaultConfiguration": "production"
@@ -64,6 +77,12 @@
             },
             "development": {
               "browserTarget": "angular-sofkau:build:development"
+            },
+            "es": {
+              "browserTarget": "angular-sofkau:build:es"
+            },
+            "en": {
+              "browserTarget": "angular-sofkau:build:en"
             }
           },
           "defaultConfiguration": "development"
@@ -111,7 +130,7 @@
               "vendorChunk": true
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "development"
         },
         "serve-ssr": {
           "builder": "@nguniversal/builders:ssr-dev-server",

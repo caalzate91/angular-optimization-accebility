@@ -1,27 +1,122 @@
-# AngularSofkau
+# Soportes de trabajo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+## Optimización, i18n (A11y) y Pruebas con Jest en Angular
 
-## Development server
+Nombre: Julieth Tatiana García Zuluaga
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## 🚀 Ejecución del proyecto en diferentes idiomas
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Para correr la aplicación en **español**:
 
-## Build
+```bash
+ng serve --configuration=es
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Para correr la aplicación en **inglés**:
 
-## Running unit tests
+```bash
+ng serve --configuration=en
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+### A) Optimización con `NgOptimizedImage`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Identifica la imagen que más impacta el **LCP** de la vista inicial.  
 
-## Further help
+![Banner](/src/assets/lcp1.png)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+>De acuerdo con el reporte generado con Lighthouse, la imagen que más impacto negativo tiene sobre el LCP es la del banner.  
+
+- Reemplaza su `<img>` por la directiva `NgOptimizedImage`, marca la imagen LCP con `priority` y define `width/height` reales.  
+
+![Banner](/src/assets/image-priority.png)
+
+- Para imágenes no críticas, aplica **lazy-load**. 
+
+![Banner](/src/assets/image-lazy.png)
+
+- Ejecuta Lighthouse antes/después y adjunta evidencias (capturas).  
+
+![Banner](/src/assets/lcp2.png)
+
+> El performance mejoró un poco, pero sigue presentando problemas la imagen del banner; aunque ya se configuró como `priority`, sigue siendo pesada o tarda en renderizar.
+
+---
+
+### B) Usabilidad y Accesibilidad con i18n (`@angular/localize`)
+
+- Ajusta la aplicación para que detecte el idioma y que se pueda cambiar a otro idioma.  
+- Al ejecutar con este comando:
+
+![Banner](/src/assets/localize-es.png)
+
+ La página se muestra en **español**.  
+
+![Banner](/src/assets/localize-es-screen.png)
+
+- Al ejecutar con este otro comando:
+
+![Banner](/src/assets/localize-en.png)
+
+La página se muestra en **inglés**:
+
+![Banner](/src/assets/localize-en-screen.png)
+
+---
+
+### C) Pruebas con Jest – 3 pruebas nuevas
+
+Se escribieron **3 pruebas adicionales** (unitarias o de integración ligera):
+
+#### 1. Servicio con HTTP: caso de éxito y error
+
+Se agrega esta prueba:
+
+![Banner](/src/assets/test-http-success.png)
+
+- Verifica que:
+  - Se usa la **URL correcta**.
+  - Se hace con el método correcto (**GET**).
+  - El servicio devuelve la respuesta simulada (`mockResponse`).
+
+- También se agrega una prueba de **error**:
+
+![Banner](/src/assets/test-http-error.png)
+
+- Garantiza que el servicio propague los errores del backend (500) en lugar de devolver datos incorrectos.
+
+![Banner](/src/assets/result-http.png)
+
+- Se evidencia que, además de las 29 pruebas existentes, estas dos funcionan correctamente.
+
+#### 2. Componente: interacción del usuario y verificación del DOM
+
+Se agrega esta prueba:
+
+![Banner](/src/assets/test-component.png)
+
+- Valida que:
+  - Al inicializar (page=1) se renderizan los nombres (`h3.character-name`) y las imágenes con `alt`.
+  - El botón **Previous** está deshabilitado en la primera página y **Next** habilitado.
+  - Se simula un clic en **Next** y se verifica que el servicio se invoca con `page=2`.  
+
+- Se evidencia que, adicional a las pruebas anteriores, está funciona correctamente:
+
+![Banner](/src/assets/result-component.png)
+
+#### 3. Integración ligera: Componente + Servicio + HTTP mock
+
+- Se agregan pruebas de integración con el servicio real y `HttpTestingController`.
+
+![Banner](/src/assets/test-integration1.png)
+
+![Banner](/src/assets/test-integration2.png)
+
+El resultado de la prueba es:
+
+![Banner](/src/assets/result-integration.png)
+
+> El error observado en consola no significa que la prueba falló, ya que el total de pruebas pasaron; sino que el componente está imprimiendo el `HttpErrorResponse` simulado.

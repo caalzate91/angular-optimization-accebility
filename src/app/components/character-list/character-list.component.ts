@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RickMortyService, Character, ApiResponse } from '../../services/rick-morty.service';
 
+
 @Component({
   selector: 'app-character-list',
   templateUrl: './character-list.component.html',
