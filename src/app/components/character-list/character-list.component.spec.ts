@@ -1,7 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { of, throwError } from 'rxjs';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { CharacterListComponent } from './character-list.component';
 import { RickMortyService, Character, ApiResponse } from '../../services/rick-morty.service';
+import { NgOptimizedImage } from '@angular/common';
 
 describe('CharacterListComponent', () => {
   let component: CharacterListComponent;
@@ -57,6 +59,7 @@ describe('CharacterListComponent', () => {
 
     await TestBed.configureTestingModule({
       declarations: [CharacterListComponent],
+      imports: [NgOptimizedImage],
       providers: [
         { provide: RickMortyService, useValue: rickMortyServiceSpy }
       ]
@@ -210,11 +213,102 @@ describe('CharacterListComponent', () => {
       expect(component.characters.length).toBe(2);
     });
 
+
+  describe('lightweight integration (component + real service + http mock)', () => {
+    let httpMock: HttpTestingController;
+    let realFixture: ComponentFixture<CharacterListComponent>;
+    let realComponent: CharacterListComponent;
+
+    beforeEach(async () => {
+      // Reset any previously instantiated test module so we can configure a fresh one
+      TestBed.resetTestingModule();
+      await TestBed.configureTestingModule({
+        declarations: [CharacterListComponent],
+        imports: [NgOptimizedImage, HttpClientTestingModule],
+        providers: [RickMortyService]
+      }).compileComponents();
+
+      realFixture = TestBed.createComponent(CharacterListComponent);
+      realComponent = realFixture.componentInstance;
+      httpMock = TestBed.inject(HttpTestingController);
+    });
+
+    afterEach(() => {
+      if (httpMock) {
+        httpMock.verify();
+      }
+    });
+
+    it('should load characters via real service using mocked HTTP response', () => {
+      // trigger ngOnInit -> loadCharacters(1)
+      realFixture.detectChanges();
+
+      const req = httpMock.expectOne('https://rickandmortyapi.com/api/character?page=1');
+      expect(req.request.method).toBe('GET');
+
+      // respond with mockApiResponse
+      req.flush(mockApiResponse);
+
+      // after flush, component should have data
+      expect(realComponent.characters.length).toBe(2);
+      expect(realComponent.currentPage).toBe(1);
+      expect(realComponent.totalPages).toBe(42);
+      expect(realComponent.loading).toBe(false);
+    });
+
+    it('should handle HTTP error from real service and set error message', () => {
+      realFixture.detectChanges();
+
+      const req = httpMock.expectOne('https://rickandmortyapi.com/api/character?page=1');
+      req.flush('Server error', { status: 500, statusText: 'Server Error' });
+
+      expect(realComponent.error).toBe('Error loading characters. Please try again.');
+      expect(realComponent.loading).toBe(false);
+    });
+  });
+
     it('should render component without errors', () => {
       mockRickMortyService.getCharacters.mockReturnValue(of(mockApiResponse));
 
       expect(() => fixture.detectChanges()).not.toThrow();
       expect(component).toBeTruthy();
+    });
+
+    it('should respond to user clicking Next and expose accessible elements (names, image alts, button states)', () => {
+      // service returns the same mock for any page in this test
+      mockRickMortyService.getCharacters.mockReturnValue(of(mockApiResponse));
+
+      // initialize component (calls ngOnInit -> loadCharacters(1))
+      fixture.detectChanges();
+
+      // service should be called for page 1 during init
+      expect(mockRickMortyService.getCharacters).toHaveBeenCalledWith(1);
+
+      const compiled = fixture.nativeElement as HTMLElement;
+
+      // accessible check: character names are rendered (h3.character-name)
+      const nameEls = compiled.querySelectorAll('h3.character-name');
+      expect(nameEls.length).toBeGreaterThan(0);
+      expect(nameEls[0].textContent).toContain('Rick Sanchez');
+
+      // accessible check: images have alt attribute equal to character name
+      const imgs = compiled.querySelectorAll('img.character-image');
+      expect(imgs.length).toBeGreaterThan(0);
+      expect(imgs[0].getAttribute('alt')).toBe('Rick Sanchez');
+
+      // buttons: prev should be disabled on first page, next enabled
+      const prevBtn = compiled.querySelector('button.prev-btn') as HTMLButtonElement | null;
+      const nextBtn = compiled.querySelector('button.next-btn') as HTMLButtonElement | null;
+      expect(prevBtn).toBeTruthy();
+      expect(nextBtn).toBeTruthy();
+      expect(prevBtn!.disabled).toBe(true);
+      expect(nextBtn!.disabled).toBe(false);
+
+      // simulate user clicking Next -> should request page 2
+      nextBtn!.click();
+      fixture.detectChanges();
+
+      expect(mockRickMortyService.getCharacters).toHaveBeenCalledWith(2);
     });
   });
 });

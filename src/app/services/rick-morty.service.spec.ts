@@ -98,7 +98,58 @@ describe('RickMortyService', () => {
       const req = httpMock.expectOne('https://rickandmortyapi.com/api/character?page=1');
       req.flush('Not Found', { status: 404, statusText: 'Not Found' });
     });
+
+    // Nuevas pruebas agregadas
+
+    it('should perform GET to correct URL and return mocked ApiResponse (success)', () => {
+      const mockResponse: ApiResponse = {
+        info: { count: 2, pages: 1, next: null, prev: null },
+        results: [
+          {
+            id: 42,
+            name: 'Test Character',
+            status: 'Unknown',
+            species: 'Alien',
+            type: 'TestType',
+            gender: 'Genderless',
+            origin: { name: 'Unknown', url: '' },
+            location: { name: 'Unknown', url: '' },
+            image: 'https://example.com/avatar.png',
+            episode: [],
+            url: 'https://rickandmortyapi.com/api/character/42',
+            created: new Date().toISOString()
+          }
+        ]
+      };
+
+      service.getCharacters(2).subscribe(response => {
+        // verify simulated response
+        expect(response).toEqual(mockResponse);
+        expect(response.results[0].id).toBe(42);
+      });
+
+      const req = httpMock.expectOne('https://rickandmortyapi.com/api/character?page=2');
+      // verify HTTP method
+      expect(req.request.method).toBe('GET');
+      // send mock response
+      req.flush(mockResponse);
+    });
+
+    it('should propagate server errors (500) when getting characters', () => {
+      service.getCharacters(5).subscribe({
+        next: () => fail('Expected an error response'),
+        error: (err) => {
+          expect(err.status).toBe(500);
+          expect(err.statusText).toBe('Server Error');
+        }
+      });
+
+      const req = httpMock.expectOne('https://rickandmortyapi.com/api/character?page=5');
+      expect(req.request.method).toBe('GET');
+      req.flush('Internal Server Error', { status: 500, statusText: 'Server Error' });
+    });
   });
+
 
   describe('getCharacterById', () => {
     it('should fetch character by id', () => {

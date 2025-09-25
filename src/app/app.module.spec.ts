@@ -6,6 +6,7 @@ import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
 import { CharacterListComponent } from './components/character-list/character-list.component';
 import { RickMortyService } from './services/rick-morty.service';
+import { NgOptimizedImage } from '@angular/common';
 
 describe('AppModule', () => {
   beforeEach(async () => {
@@ -13,7 +14,8 @@ describe('AppModule', () => {
       imports: [
         AppModule,
         HttpClientTestingModule,
-        RouterTestingModule
+        RouterTestingModule,
+        NgOptimizedImage
       ]
     }).compileComponents();
   });

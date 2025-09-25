@@ -1,4 +1,17 @@
 import 'jest-preset-angular/setup-jest';
+import { TextEncoder, TextDecoder } from 'util';
+import '@angular/localize/init';
+
+(global as any).TextEncoder = TextEncoder;
+(global as any).TextDecoder = TextDecoder as any;
+
+beforeAll(() => {
+  const link = document.createElement('link');
+  link.rel = 'preconnect';
+  link.href = 'https://rickandmortyapi.com';
+  link.crossOrigin = '';
+  document.head.appendChild(link);
+});
 
 // Mock para localStorage
 Object.defineProperty(window, 'localStorage', {
