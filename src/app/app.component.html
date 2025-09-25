@@ -1,18 +1,26 @@
 <div class="app-container">
   <header class="app-header">
-    <img src="assets/o6cwlzg3exk41.png" alt="Rick and Morty Banner" class="banner-image">
+    <div class="language-switcher">
+      <label for="lang-select">🌐</label>
+      <select (change)="onLanguageChange($event)">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+        aria-label="Select language"
+      </select>
+    </div>
+    <img ngSrc="assets/o6cwlzg3exk41.webp" alt="Rick and Morty Banner" class="banner-image" width="768" height="200"
+      priority fetchpriority="high">
   </header>
-
   <main class="main-content">
     <app-character-list></app-character-list>
   </main>
-
   <footer class="app-footer">
     <div class="footer-content">
-      <img src="assets/rick-and-morty-escape-facebook-cover.jpg" alt="Rick and Morty Footer" class="footer-image">
+      <img ngSrc="assets/rick-and-morty-escape-facebook-cover.webp" alt="Rick and Morty Footer" class="footer-image"
+        width="406" height="150" loading="lazy">
       <div class="footer-text">
-        <p>&copy; 2025 Rick and Morty Character Explorer</p>
-        <p>Data provided by <a href="https://rickandmortyapi.com/" target="_blank" rel="noopener">The Rick and Morty API</a></p>
+        <p>&copy; {{'copy' | translate }}</p>
+        <p>{{'dataBy' | translate }} <a href="https://rickandmortyapi.com/" target="_blank" rel="noopener" aria-label="link Page Api">{{'api' | translate }}</a></p>
       </div>
     </div>
   </footer>

@@ -139,18 +139,18 @@ h1 {
 }
 
 .status-alive {
-  background: #27ae60;
-  color: white;
+  background: #137333;
+  color: #fff;
 }
 
 .status-dead {
-  background: #e74c3c;
-  color: white;
+  background: #b00020;
+  color: #fff;
 }
 
 .status-unknown {
-  background: #95a5a6;
-  color: white;
+  background: #616161;
+  color: #fff;
 }
 
 .character-info {
@@ -209,8 +209,8 @@ h1 {
 }
 
 .pagination-btn {
-  background: #3498db;
-  color: white;
+  background: #0057b8;
+  color: #fff;
   border: none;
   padding: 12px 25px;
   border-radius: 25px;
@@ -225,7 +225,8 @@ h1 {
 }
 
 .pagination-btn:disabled {
-  background: #bdc3c7;
+  background: #bdbdbd;
+  color: #333;
   cursor: not-allowed;
 }
 

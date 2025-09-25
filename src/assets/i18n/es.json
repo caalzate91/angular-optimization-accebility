@@ -1,0 +1,17 @@
+{
+    "principalTittle": "Explora el Multiverso",
+    "subTittle": "¡Descubre todos los personajes extravagantes de Rick y Morty!",
+    "loading": "Cargando personajes del multiverso...",
+    "tryAgain": "Intenta de nuevo",
+    "species": "Especie:",
+    "type": "Tipo:",
+    "gender": "Genero:",
+    "location": "Última ubicación conocida:",
+    "seen": "Visto por primera vez en:",
+    "previous": "← Anterior",
+    "next": "Siguiente →",
+    "copy": "Explorador de personajes de Rick y Morty 2025",
+    "dataBy": "Datos proporcionados por",
+    "api": "La API de Rick and Morty",
+    "of": "de"
+}

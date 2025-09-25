@@ -1,27 +1,47 @@
-# AngularSofkau
+# AngularSofkau 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+## Ejecución del proyecto 
 
-## Development server
+# Instalar dependencias
+npm install
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Servir en modo desarrollo
+ng serve
 
-## Code scaffolding
+# Reto Técnico — Optimización, i18n (A11y) y Pruebas con Jest en Angular
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Este repositorio contiene una aplicación en **Angular** donde se implementaron optimizaciones enfocadas en: 
 
-## Build
+1.  **Rendimiento (LCP) con `NgOptimizedImage`** 
+2.  **Usabilidad y Accesibilidad con i18n (`@angular/localize`)** 
+3.  **Pruebas unitarias en Jest en Angular**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Rendimiento de Imágenes(LCP) con `NgOptimizedImage` 
 
-## Running unit tests
+El objetivo fue mejorar la métrica **(LCP)** de la vista inicial. 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Ajustes
+1. Identificación de la imagen con mayor impacto en el **LCP**. 
+2. Reemplazo de la etiqueta `<img>` por la directiva **`NgOptimizedImage`**. 
+3. Marcado de la imagen principal como **`priority`** y definición de **width/height** reales. 
+4. Configuración de **lazy-loading** en imágenes no críticas. 
 
-## Running end-to-end tests
+### Validación 
+Se utilizó **Lighthouse** para evaluar el impacto: 
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- **Antes de la optimización:** LCP fue elevado debido a la carga tardía de la imagen principal. 
+- **Después de la optimización:** Reducción significativa en el tiempo de renderizado de la imagen principal.
 
-## Further help
+## Internacionalización (i18n) con `@angular/localize` 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+El objetivo fue mejorar la **usabilidad y accesibilidad** para usuarios con diferentes configuraciones de idioma. 
+
+### Ajustes realizados 
+1. Integración de **Angular Localize** en el proyecto. 
+2. Configuración para detectar automáticamente el idioma del navegador. 
+3. Implementación de selector de idioma en la interfaz para permitir cambio manual. 
+4. Inclusión de archivos de traducción: 
+ - `es.json` para Español 
+ - `en.json` para Inglés 
+
+

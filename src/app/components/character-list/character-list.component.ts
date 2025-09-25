@@ -1,7 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { CommonModule, NgOptimizedImage } from '@angular/common'
 import { RickMortyService, Character, ApiResponse } from '../../services/rick-morty.service';
+import { HttpClientModule } from '@angular/common/http';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
+  standalone: true,
+  providers: [RickMortyService],
+  imports: [NgOptimizedImage, HttpClientModule, CommonModule, TranslateModule],
   selector: 'app-character-list',
   templateUrl: './character-list.component.html',
   styleUrls: ['./character-list.component.css']
@@ -13,7 +19,7 @@ export class CharacterListComponent implements OnInit {
   currentPage = 1;
   totalPages = 1;
 
-  constructor(private readonly rickMortyService: RickMortyService) { }
+  private readonly rickMortyService = inject(RickMortyService)
 
   ngOnInit(): void {
     this.loadCharacters();
@@ -22,7 +28,6 @@ export class CharacterListComponent implements OnInit {
   loadCharacters(page: number = 1): void {
     this.loading = true;
     this.error = '';
-
     this.rickMortyService.getCharacters(page).subscribe({
       next: (response: ApiResponse) => {
         this.characters = response.results;
