@@ -1,0 +1,7 @@
+<nav class="lang-switch" aria-label="Idioma">
+  <ul>
+    <li *ngFor="let locale of locales">
+      <a href="/{{ locale.code }}/">{{ locale.label }}</a>
+    </li>
+  </ul>
+</nav>

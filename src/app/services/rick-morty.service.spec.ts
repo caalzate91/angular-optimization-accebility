@@ -87,6 +87,38 @@ describe('RickMortyService', () => {
       req.flush(mockResponse);
     });
 
+    it('should return a non-empty array of characters', () => {
+      const mockResponse: ApiResponse = {
+        info: { count: 826, pages: 42, next: '', prev: null },
+        results: [
+          {
+            id: 1,
+            name: 'Rick Sanchez',
+            status: 'Alive',
+            species: 'Human',
+            type: '',
+            gender: 'Male',
+            origin: { name: '', url: '' },
+            location: { name: '', url: '' },
+            image: '',
+            episode: [],
+            url: '',
+            created: '',
+          },
+        ],
+      };
+
+      service.getCharacters().subscribe((response) => {
+        expect(Array.isArray(response.results)).toBe(true);
+        expect(response.results.length).toBeGreaterThan(0);
+      });
+
+      const req = httpMock.expectOne(
+        'https://rickandmortyapi.com/api/character?page=1'
+      );
+      req.flush(mockResponse);
+    });
+
     it('should handle HTTP errors', () => {
       service.getCharacters().subscribe({
         next: () => fail('Expected an error'),
