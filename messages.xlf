@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="exploreTitle" datatype="html">
+        <source>Explore the Multiverse</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/character-list/character-list.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="discoverSubtitle" datatype="html">
+        <source>Discover all the crazy characters from Rick and Morty!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/character-list/character-list.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loadingMessage" datatype="html">
+        <source>Loading characters from the multiverse...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/character-list/character-list.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="retryButton" datatype="html">
+        <source>Try Again</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/character-list/character-list.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="speciesLabel" datatype="html">
+        <source>Species:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/character-list/character-list.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="typeLabel" datatype="html">
+        <source>Type:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/character-list/character-list.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="genderLabel" datatype="html">
+        <source>Gender:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/character-list/character-list.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="lastLocationLabel" datatype="html">
+        <source>Last known location:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/character-list/character-list.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="firstSeenLabel" datatype="html">
+        <source>First seen in:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/character-list/character-list.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="previousButton" datatype="html">
+        <source> ← Previous </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/character-list/character-list.component.html</context>
+          <context context-type="linenumber">63,65</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="separatorOf" datatype="html">
+        <source>of</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/character-list/character-list.component.html</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nextButton" datatype="html">
+        <source> Next → </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/character-list/character-list.component.html</context>
+          <context context-type="linenumber">77,79</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

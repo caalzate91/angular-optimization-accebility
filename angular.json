@@ -9,6 +9,14 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en",
+        "locales": {
+          "es": {
+            "translation": "src/locale/messages.es.xlf"
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -52,6 +60,9 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "es": {
+              "localize": ["es"]
             }
           },
           "defaultConfiguration": "production"
@@ -64,6 +75,9 @@
             },
             "development": {
               "browserTarget": "angular-sofkau:build:development"
+            },
+            "es": {
+              "browserTarget": "angular-sofkau:build:es"
             }
           },
           "defaultConfiguration": "development"

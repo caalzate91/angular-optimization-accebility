@@ -6,10 +6,11 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "test": "jest",
     "dev:ssr": "ng run angular-sofkau:serve-ssr",
     "serve:ssr": "node dist/angular-sofkau/server/main.js",
     "build:ssr": "ng build && ng run angular-sofkau:server",
+    "test:watch": "jest --watch",
     "prerender": "ng run angular-sofkau:prerender"
   },
   "private": true,
@@ -19,6 +20,7 @@
     "@angular/compiler": "^16.2.0",
     "@angular/core": "^16.2.0",
     "@angular/forms": "^16.2.0",
+    "@angular/localize": "^16.2.12",
     "@angular/platform-browser": "^16.2.0",
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/platform-server": "^16.2.0",
@@ -35,14 +37,11 @@
     "@angular/compiler-cli": "^16.2.0",
     "@nguniversal/builders": "^16.2.0",
     "@types/express": "^4.17.0",
-    "@types/jasmine": "~4.3.0",
+    "@types/jest": "^30.0.0",
     "@types/node": "^16.11.7",
     "jasmine-core": "~4.6.0",
-    "karma": "~6.4.0",
-    "karma-chrome-launcher": "~3.2.0",
-    "karma-coverage": "~2.2.0",
-    "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.1.0",
+    "jest": "^29.7.0",
+    "jest-preset-angular": "^13.1.6",
     "typescript": "~5.1.3"
   }
 }
