@@ -1,27 +1,32 @@
-# AngularSofkau
+# Rick & Morty Angular App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+Este proyecto es una aplicación Angular que consume la API pública de Rick & Morty.  
+Incluye optimizaciones de rendimiento, soporte multi-idioma e implementación de tests con **Jest**.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+![Reporte lighthouse antes](docs/report_before.png)
+![Reporte lighthouse después](docs/report_after.png)
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 🚀 Características principales
 
-## Build
+- **Optimización LCP** con `ngOptimize` y `fetchpriority=high` en la imagen principal del header.
+- **Carga optimizada de personajes**: solo las 3 primeras imágenes tienen prioridad, el resto usan `loading="lazy"`.
+- **Internacionalización (i18n)** con `@angular/localize`, configurado en **inglés (en), español (es) y francés (fr)**.
+- **Pruebas unitarias y de integración** con **Jest** para componentes y servicios.
+- **Arquitectura modular** con separación clara de servicios, componentes y pruebas.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+---
 
-## Running unit tests
+## 📦 Instalación
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Clona el repositorio e instala las dependencias:
 
-## Running end-to-end tests
+```bash
+git clone <repo-url>
+cd angular-optimization-accesibility
+npm install
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```

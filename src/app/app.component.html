@@ -1,6 +1,15 @@
 <div class="app-container">
   <header class="app-header">
-    <img src="assets/o6cwlzg3exk41.png" alt="Rick and Morty Banner" class="banner-image">
+    <img
+      ngSrc="assets/o6cwlzg3exk41.webp"
+      alt="Rick and Morty Banner"
+      class="banner-image"
+      width="768"
+      height="200"
+      priority
+      fetchpriority="high"
+    />
+    <app-language-switcher></app-language-switcher>
   </header>
 
   <main class="main-content">
@@ -9,10 +18,21 @@
 
   <footer class="app-footer">
     <div class="footer-content">
-      <img src="assets/rick-and-morty-escape-facebook-cover.jpg" alt="Rick and Morty Footer" class="footer-image">
+      <img  
+        ngSrc="assets/rick-and-morty-escape-facebook-cover.webp"
+        alt="Rick and Morty Footer"
+        class="footer-image"
+        width="410"
+        height="150"
+      />
       <div class="footer-text">
-        <p>&copy; 2025 Rick and Morty Character Explorer</p>
-        <p>Data provided by <a href="https://rickandmortyapi.com/" target="_blank" rel="noopener">The Rick and Morty API</a></p>
+        <p i18n="@@copyright">&copy; 2025 Rick and Morty Character Explorer</p>
+        <p>
+          <span i18n="@@dataProvidedBy">Data provided by</span>
+          <a href="https://rickandmortyapi.com/" target="_blank" rel="noopener"
+            >The Rick and Morty API</a
+          >
+        </p>
       </div>
     </div>
   </footer>

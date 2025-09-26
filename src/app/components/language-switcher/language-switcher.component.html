@@ -1,0 +1,16 @@
+<div class="language-switcher">
+  <label for="locale-select" i18n="@@labelLang">Language:</label>
+  <select
+    id="locale-select"
+    [value]="localeService.getCurrentLocale()"
+    (change)="onLocaleChange($event)"
+    class="locale-select"
+  >
+    <option
+      *ngFor="let locale of localeService.getSupportedLocales()"
+      [value]="locale"
+    >
+      {{ localeService.getLocaleDisplayName(locale) }}
+    </option>
+  </select>
+</div>
