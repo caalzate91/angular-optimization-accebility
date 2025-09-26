@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" target-language="es" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="labelLang" datatype="html">
+        <source>Language:</source>
+        <target>Idioma:</target>
+      </trans-unit>
+      <trans-unit id="optEnglish" datatype="html">
+        <source>English</source>
+        <target>Inglés</target>
+      </trans-unit>
+      <trans-unit id="optSpanish" datatype="html">
+        <source>Español</source>
+        <target>Español</target>
+      </trans-unit>
+      <trans-unit id="copyright" datatype="html">
+        <source>© 2025 Rick and Morty Character Explorer</source>
+        <target>© 2025 Explorador de Personajes de Rick y Morty</target>
+      </trans-unit>
+      <trans-unit id="dataProvidedBy" datatype="html">
+        <source>Data provided by</source>
+        <target>Datos proporcionados por</target>
+      </trans-unit>
+      <trans-unit id="exploreTitle" datatype="html">
+        <source>Explore the Multiverse</source>
+        <target>Explora el Multiverso</target>
+      </trans-unit>
+      <trans-unit id="subtitle" datatype="html">
+        <source> Discover all the crazy characters from Rick and Morty! </source>
+        <target> ¡Descubre todos los personajes locos de Rick y Morty! </target>
+      </trans-unit>
+      <trans-unit id="loadingText" datatype="html">
+        <source>Loading characters from the multiverse...</source>
+        <target>Cargando personajes del multiverso...</target>
+      </trans-unit>
+      <trans-unit id="tryAgain" datatype="html">
+        <source> Try Again </source>
+        <target> Intentar de nuevo </target>
+      </trans-unit>
+      <trans-unit id="labelSpecies" datatype="html">
+        <source>Species:</source>
+        <target>Especie:</target>
+      </trans-unit>
+      <trans-unit id="labelType" datatype="html">
+        <source>Type:</source>
+        <target>Tipo:</target>
+      </trans-unit>
+      <trans-unit id="labelGender" datatype="html">
+        <source>Gender:</source>
+        <target>Género:</target>
+      </trans-unit>
+      <trans-unit id="labelLastKnown" datatype="html">
+        <source>Last known location:</source>
+        <target>Última ubicación conocida:</target>
+      </trans-unit>
+      <trans-unit id="labelFirstSeen" datatype="html">
+        <source>First seen in:</source>
+        <target>Visto por primera vez en:</target>
+      </trans-unit>
+      <trans-unit id="prev" datatype="html">
+        <source>← Previous</source>
+        <target>← Anterior</target>
+      </trans-unit>
+      <trans-unit id="of" datatype="html">
+        <source>of</source>
+        <target>de</target>
+      </trans-unit>
+      <trans-unit id="next" datatype="html">
+        <source>Next →</source>
+        <target>Siguiente →</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

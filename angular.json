@@ -8,6 +8,13 @@
       "schematics": {},
       "root": "",
       "sourceRoot": "src",
+      "i18n": {
+        "sourceLocale": "en",
+        "locales": {
+          "es": "src/locale/messages.es.xlf",
+          "fr": "src/locale/messages.fr.xlf"
+        }
+      },
       "prefix": "app",
       "architect": {
         "build": {
@@ -16,20 +23,26 @@
             "outputPath": "dist/angular-sofkau/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["@angular/localize/init", "zone.js"],
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.css"],
+            "scripts": [],
+            "localize": false
           },
           "configurations": {
+            "es": {
+              "localize": ["es"],
+              "outputPath": "dist/angular-sofkau/es"
+            },
+            "en": {
+              "localize": ["en"],
+              "outputPath": "dist/angular-sofkau/en"
+            },
+            "fr": {
+              "localize": ["fr"],
+              "outputPath": "dist/angular-sofkau/fr"
+            },
             "production": {
               "budgets": [
                 {
@@ -43,7 +56,8 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "localize": ["en", "es"]
             },
             "development": {
               "buildOptimizer": false,
@@ -59,6 +73,10 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
+            "es": { "browserTarget": "angular-sofkau:build:es" },
+            "en": { "browserTarget": "angular-sofkau:build:en" },
+            "fr": { "browserTarget": "angular-sofkau:build:fr" },
+
             "production": {
               "browserTarget": "angular-sofkau:build:production"
             },
@@ -77,18 +95,10 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.css"],
             "scripts": []
           }
         },
@@ -130,9 +140,7 @@
         "prerender": {
           "builder": "@nguniversal/builders:prerender",
           "options": {
-            "routes": [
-              "/"
-            ]
+            "routes": ["/"]
           },
           "configurations": {
             "production": {

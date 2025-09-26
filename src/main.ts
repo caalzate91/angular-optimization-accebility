@@ -5,8 +5,9 @@ import { AppModule } from './app/app.module';
 
 // Ensure development mode for Angular DevTools
 if (typeof window !== 'undefined' && (window as any).ng) {
-  (window as any).ng.enableDebugTools = true;
+  (window as any).ng.enableDebugTools = false;
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  .catch((err) => console.error(err));

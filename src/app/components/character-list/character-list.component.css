@@ -25,6 +25,7 @@ h1 {
   text-align: center;
   padding: 60px 20px;
   color: white;
+  height: 80vh;
 }
 
 .portal-loader {
@@ -63,8 +64,12 @@ h1 {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .error {
@@ -188,13 +193,15 @@ h1 {
   border-top: 2px solid rgba(52, 73, 94, 0.1);
 }
 
-.location, .origin {
+.location,
+.origin {
   margin: 10px 0;
   font-size: 0.85rem;
   color: #34495e;
 }
 
-.location-name, .origin-name {
+.location-name,
+.origin-name {
   color: #2980b9;
   font-weight: 500;
 }
@@ -254,14 +261,29 @@ h1 {
 }
 
 @media (max-width: 768px) {
-  h1 { font-size: 2.2rem; }
-  .subtitle { font-size: 1rem; }
-  .characters-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
-  .character-image { height: 180px; }
-  .pagination { flex-direction: column; gap: 15px; }
+  h1 {
+    font-size: 2.2rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+  .characters-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+  .character-image {
+    height: 180px;
+  }
+  .pagination {
+    flex-direction: column;
+    gap: 15px;
+  }
 }
 
 @media (max-width: 480px) {
-  .characters-grid { grid-template-columns: 1fr; }
-  .character-name { font-size: 1.2rem; }
+  .characters-grid {
+    grid-template-columns: 1fr;
+  }
+  .character-name {
+    font-size: 1.2rem;
+  }
 }
