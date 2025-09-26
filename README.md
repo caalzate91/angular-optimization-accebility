@@ -5,6 +5,10 @@ Incluye optimizaciones de rendimiento, soporte multi-idioma e implementación de
 
 ---
 
+![Reporte lighthouse antes](docs/report_before.png)
+![Reporte lighthouse después](docs/report_after.png)
+
+
 ## 🚀 Características principales
 
 - **Optimización LCP** con `ngOptimize` y `fetchpriority=high` en la imagen principal del header.
@@ -23,3 +27,6 @@ Clona el repositorio e instala las dependencias:
 git clone <repo-url>
 cd angular-optimization-accesibility
 npm install
+
+
+```
