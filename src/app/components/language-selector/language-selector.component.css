@@ -1,0 +1,151 @@
+.language-selector {
+  position: relative;
+  display: inline-block;
+}
+
+.language-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #ffffff;
+  border: 2px solid #00b4d8;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 180, 216, 0.1);
+}
+
+.language-button:hover {
+  background: #f8f9fa;
+  border-color: #0096c7;
+  box-shadow: 0 4px 8px rgba(0, 180, 216, 0.2);
+}
+
+.language-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.3);
+}
+
+.flag {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.language-name {
+  min-width: 60px;
+  text-align: left;
+}
+
+.dropdown-arrow {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+  color: #666;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.language-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border: 2px solid #00b4d8;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  margin-top: 4px;
+}
+
+.language-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  transition: background-color 0.2s ease;
+  text-align: left;
+}
+
+.language-option:hover {
+  background: #f8f9fa;
+}
+
+.language-option.active {
+  background: #e3f2fd;
+  color: #0096c7;
+  font-weight: 600;
+}
+
+.language-option:first-child {
+  border-radius: 4px 4px 0 0;
+}
+
+.language-option:last-child {
+  border-radius: 0 0 4px 4px;
+}
+
+.language-option .flag {
+  font-size: 16px;
+}
+
+.dropdown-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  background: transparent;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .language-button {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+  
+  .language-name {
+    display: none;
+  }
+  
+  .language-dropdown {
+    min-width: 120px;
+  }
+}
+
+/* Animación para el portal de Rick y Morty */
+.language-selector:hover .language-button {
+  animation: portal-glow 2s infinite alternate;
+}
+
+@keyframes portal-glow {
+  0% {
+    box-shadow: 0 2px 4px rgba(0, 180, 216, 0.1);
+  }
+  100% {
+    box-shadow: 0 4px 12px rgba(0, 180, 216, 0.4), 0 0 20px rgba(0, 180, 216, 0.2);
+  }
+}
