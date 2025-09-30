@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RickMortyService, Character, ApiResponse } from '../../services/rick-morty.service';
 
+// Importar la función de localización
+declare const $localize: any;
+
 @Component({
   selector: 'app-character-list',
   templateUrl: './character-list.component.html',
@@ -31,7 +34,7 @@ export class CharacterListComponent implements OnInit {
         this.loading = false;
       },
       error: (error) => {
-        this.error = 'Error loading characters. Please try again.';
+        this.error = $localize`:@@error-loading-characters:Error loading characters. Please try again.`;
         this.loading = false;
         console.error('Error:', error);
       }
@@ -58,6 +61,17 @@ export class CharacterListComponent implements OnInit {
         return 'status-dead';
       default:
         return 'status-unknown';
+    }
+  }
+
+  getStatusText(status: string): string {
+    switch (status.toLowerCase()) {
+      case 'alive':
+        return $localize`:@@status-alive:Alive`;
+      case 'dead':
+        return $localize`:@@status-dead:Dead`;
+      default:
+        return $localize`:@@status-unknown:Unknown`;
     }
   }
 }
